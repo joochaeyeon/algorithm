@@ -8,8 +8,10 @@ from itertools import permutations
 def solution(n, weak, dist):
     #원형을 일자 형태로 변경
     length = len(weak)
+
     for i in range(length):
         weak.append(weak[i]+n)
+        
     answer = len(dist) + 1
 
     for start in range(length):
