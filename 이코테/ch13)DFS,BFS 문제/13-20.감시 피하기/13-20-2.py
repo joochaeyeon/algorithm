@@ -40,7 +40,6 @@ def is_safe():
     return True
 
 for walls in combinations(spaces, 3):
-    #장애물 설치
     for x, y in walls:
         graph[x][y] = 'O'
 
@@ -48,7 +47,7 @@ for walls in combinations(spaces, 3):
         print("YES")
         exit(0)
 
-    #장애물 제거 (백트래킹)
+    #장애물 제거 -> 백트래킹
         graph[x][y] = 'X'
 
 print("NO")
