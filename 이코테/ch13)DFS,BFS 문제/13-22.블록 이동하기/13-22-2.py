@@ -22,6 +22,7 @@ def get_next_pos(pos,board):
             if board[pos1_x+i][pos1_y] == 0 and board[pos2_x+i][pos2_y] == 0: #위쪽 혹은 아래 두 칸이 모두 비어 있다면
                 next_pos.append({(pos1_x, pos1_y), (pos1_x+i, pos1_y)})
                 next_pos.append({(pos2_x, pos2_y), (pos2_x+i, pos2_y)})
+
     #현재 로봇이 세로로 놓여진 경우
     elif pos1_y == pos2_y:
         for i in [-1,1]: #위쪽으로 회전하거나, 아래쪽으로 회전
@@ -33,8 +34,9 @@ def get_next_pos(pos,board):
 
 
 def solution(board):
-    n  =len(board)
-    new_board = [[1] * (n+2) for _ in range(n+2)]
+    n =len(board)
+    #확장된 보드 -> 로봇이 보드 밖으로 나가는 경우를 쉽게 처리하기 위해, 보드를 1로 감싼 새로운 new_board를 만듦
+    new_board = [[1] * (n+2) for _ in range(n+2)] 
     for i in range(n):
         for j in range(n):
             new_board[i+1][j+1] = board[i][j]
